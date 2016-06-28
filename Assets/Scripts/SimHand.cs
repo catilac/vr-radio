@@ -4,11 +4,11 @@ using System.Collections;
 public class SimHand : MonoBehaviour {
 
 	public Camera mainCamera;
-	private float distance = 0.5f;
+	private float distance = 0.5f;	
+	public musicPlayback quad;
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -19,6 +19,7 @@ public class SimHand : MonoBehaviour {
 
 	void OnTriggerEnter(Collider Other){
 		print ("Trigger activated! Change music!");
+		quad.skipCurrent ();
 	}
 
 

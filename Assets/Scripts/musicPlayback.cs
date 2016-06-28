@@ -83,7 +83,7 @@ public class musicPlayback : MonoBehaviour {
 		songs.Add (clip);
 	}
 
-	void playCurrent() {
+	public void playCurrent() {
 		song.clip = songs [currentSongIndex];
 
 		string[] song_info = song.clip.name.Split (delimiter);
@@ -97,12 +97,12 @@ public class musicPlayback : MonoBehaviour {
 
 	}
 
-	void pauseCurrent() {
+	public void pauseCurrent() {
 		song.Pause ();
 		isPlaying = false;
 	}
 
-	void skipCurrent() { //edge case: all songs thumbed down
+	public void skipCurrent() { //edge case: all songs thumbed down
 		incrementSongIndex ();
 		song.Stop ();
 		while (thumbedDown.Contains(currentSongIndex)) {
