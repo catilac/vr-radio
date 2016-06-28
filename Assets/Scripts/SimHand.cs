@@ -21,4 +21,12 @@ public class SimHand : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter(Collider Other){
+		print ("Trigger activated! Change music!");
+	}
+
+
 }
+
+
+

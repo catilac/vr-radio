@@ -9,14 +9,21 @@ public class musicPlayback : MonoBehaviour {
 	private AudioSource song;
 	private List<AudioClip> songs = new List<AudioClip> ();
 	private bool isPlaying;
-	private string absolutePath = "Assets/OGG";
-	public HashSet<int> thumbedDown = new HashSet<int> ();
-	public HashSet<int> thumbedUp = new HashSet<int>();
+	private string absolutePath = "Assets/";
+	private HashSet<int> thumbedDown = new HashSet<int> ();
+	private HashSet<int> thumbedUp = new HashSet<int>();
 	private FileInfo[] songFiles;
 	private List<string> validExtensions = new List<string> {".ogg"};
 
 	private int currentSongIndex = 0;
 
+	private char[] delimiter = { '_' };
+	public string currentSongAlbumID;
+	public string currentSongTitle;
+	public string currentSongArtist;
+	public string currentSongAlbum;
+
+	public Texture2D currentAlbumArt = new Texture2D(2, 2);
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +31,7 @@ public class musicPlayback : MonoBehaviour {
 		if (song == null) {
 			song = gameObject.AddComponent<AudioSource>();
 		}
+		loadAlbumArt ("default.jpg");
 		loadSongs ();
 	}
 	
@@ -39,18 +47,17 @@ public class musicPlayback : MonoBehaviour {
 		if (Input.GetKeyUp (KeyCode.RightArrow)) { //change input to appropriate controls later
 			skipCurrent ();
 		}
-		if (Input.GetKeyUp (KeyCode.UpArrow)) {
+		if (Input.GetKeyUp (KeyCode.UpArrow)) { //change input to appropriate controls later
 			thumbsUp ();
 		}
-		if (Input.GetKeyUp (KeyCode.DownArrow)) {
+		if (Input.GetKeyUp (KeyCode.DownArrow)) { //change input to appropriate controls later
 			thumbsDown ();
 		}
 	}
 
 	void loadSongs() {
-		print ("Loading songs!");
 		songs.Clear ();
-		DirectoryInfo info = new DirectoryInfo (absolutePath);
+		DirectoryInfo info = new DirectoryInfo (absolutePath + "OGG");
 		songFiles = info.GetFiles ()
 			.Where(f => isValidFileType(f.Name)).ToArray();
 
@@ -72,15 +79,32 @@ public class musicPlayback : MonoBehaviour {
 			yield return www;
 		}
 
-		print ("finished loading" + path);
 		clip.name = Path.GetFileName (path);
 		songs.Add (clip);
 	}
 
+	void loadAlbumArt(string albumID) {
+		byte[] albumArt = File.ReadAllBytes (absolutePath + "Album Art/" + albumID);
+		currentAlbumArt.LoadImage (albumArt);
+		gameObject.GetComponent<Renderer> ().material.mainTexture = currentAlbumArt;
+	}
+
 	void playCurrent() {
 		song.clip = songs [currentSongIndex];
+
+		string[] song_info = song.clip.name.Split (delimiter);
+		if (currentSongAlbum != song_info[0]) {
+			currentSongAlbumID = song_info[0];
+			currentSongTitle = song_info[1];
+			currentSongArtist = song_info[2];
+			currentSongAlbum = song_info[3];
+
+			loadAlbumArt (currentSongAlbumID + ".jpg");
+		}
+
 		song.Play ();
 		isPlaying = true;
+
 	}
 
 	void pauseCurrent() {
