@@ -10,12 +10,18 @@ public class musicPlayback : MonoBehaviour {
 	private List<AudioClip> songs = new List<AudioClip> ();
 	private bool isPlaying;
 	private string absolutePath = "Assets/OGG";
-	public HashSet<int> thumbedDown = new HashSet<int> ();
-	public HashSet<int> thumbedUp = new HashSet<int>();
+	private HashSet<int> thumbedDown = new HashSet<int> ();
+	private HashSet<int> thumbedUp = new HashSet<int>();
 	private FileInfo[] songFiles;
 	private List<string> validExtensions = new List<string> {".ogg"};
 
 	private int currentSongIndex = 0;
+
+	private char[] delimiter = { '_' };
+	public string currentSongAlbumID;
+	public string currentSongTitle;
+	public string currentSongArtist;
+	public string currentSongAlbum;
 
 
 	// Use this for initialization
@@ -79,8 +85,16 @@ public class musicPlayback : MonoBehaviour {
 
 	void playCurrent() {
 		song.clip = songs [currentSongIndex];
+
+		string[] song_info = song.clip.name.Split (delimiter);
+		currentSongAlbumID = song_info[0];
+		currentSongTitle = song_info[1];
+		currentSongArtist = song_info[2];
+		currentSongAlbum = song_info[3];
+
 		song.Play ();
 		isPlaying = true;
+
 	}
 
 	void pauseCurrent() {
