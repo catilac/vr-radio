@@ -542,7 +542,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1726811207}
+  simHand: {fileID: 1178121131}
   speedMultiplier: 0.5
+  clampInDegrees: {x: 360, y: 180}
+  lockCursor: 0
+  sensitivity: {x: 2, y: 2}
+  smoothing: {x: 3, y: 3}
+  targetDirection: {x: 0, y: 0}
+  targetCharacterDirection: {x: 0, y: 0}
 --- !u!4 &1624299627
 Transform:
   m_ObjectHideFlags: 0
@@ -568,7 +575,6 @@ GameObject:
   - 92: {fileID: 1726811206}
   - 124: {fileID: 1726811205}
   - 81: {fileID: 1726811204}
-  - 114: {fileID: 1726811209}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera

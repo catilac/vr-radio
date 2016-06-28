@@ -13,8 +13,12 @@ public class SimHand : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {		
-		transform.position = mainCamera.transform.position + mainCamera.transform.forward * distance;
-		transform.rotation = new Quaternion (0.0f, mainCamera.transform.rotation.y, 0.0f, mainCamera.transform.rotation.w);
+		if (Input.GetKey ("e")) {
+			// do nothing
+		} else {
+			transform.position = mainCamera.transform.position + mainCamera.transform.forward * distance;
+			transform.rotation = new Quaternion (0.0f, mainCamera.transform.rotation.y, 0.0f, mainCamera.transform.rotation.w);
+		}
 	}
 
 	void OnTriggerEnter(Collider Other){
