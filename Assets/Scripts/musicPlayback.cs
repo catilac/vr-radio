@@ -17,7 +17,7 @@ public class musicPlayback : MonoBehaviour {
 
 	private int currentSongIndex = 0;
 
-	private char[] delimiter = { '_' };
+	private char[] delimiters = { '_', '.' };
 	public string currentSongAlbumID;
 	public string currentSongTitle;
 	public string currentSongArtist;
@@ -89,10 +89,12 @@ public class musicPlayback : MonoBehaviour {
 		gameObject.GetComponent<Renderer> ().material.mainTexture = currentAlbumArt;
 	}
 
+
+	//Music playback controls
 	void playCurrent() {
 		song.clip = songs [currentSongIndex];
 
-		string[] song_info = song.clip.name.Split (delimiter);
+		string[] song_info = song.clip.name.Split (delimiters);
 		if (currentSongAlbum != song_info[0]) {
 			currentSongAlbumID = song_info[0];
 			currentSongTitle = song_info[1];
@@ -104,7 +106,6 @@ public class musicPlayback : MonoBehaviour {
 
 		song.Play ();
 		isPlaying = true;
-
 	}
 
 	void pauseCurrent() {
