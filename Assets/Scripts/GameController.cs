@@ -5,8 +5,23 @@ public class GameController : MonoSingleton<GameController> {
 
 	public Camera mainCamera;
 	public SimHand simHand;
-	public float speedMultiplier = 0.0005f;
+	public float speedMultiplier = 0.5f;
 	private float handSpeedMultiplier = 0.1f;
+	//Steam VR Controller variables
+	private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
+	private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+
+	private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+	private SteamVR_TrackedObject trackedObj;
+
+	public bool gripButtonDown = false;		
+	public bool gripButtonUp = false;		
+	public bool gripButtonPressed = false;	
+
+	public bool triggerButtonDown = false;		
+	public bool triggerButtonUp = false;		
+	public bool triggerButtonPressed = false;
+
 
 	Vector2 _mouseAbsolute;
 	Vector2 _smoothMouse;
@@ -18,19 +33,12 @@ public class GameController : MonoSingleton<GameController> {
 	public Vector2 targetDirection;
 	public Vector2 targetCharacterDirection;
 
-	public GameObject leftHandModel;
-	public GameObject rightHandModel;
-	public GameObject steamLeftController;
-	public GameObject steamRightController;
-
-	protected override void Awake() {
-		replaceSteamControllerModels (steamLeftController, leftHandModel, steamRightController, rightHandModel);		
-		base.Awake ();
-	}
-
 	void Start() {
 		// Set target direction to the camera's initial orientation.
 		targetDirection = transform.localRotation.eulerAngles;
+		//Steam VR tracked object.
+		trackedObj = GetComponent<SteamVR_TrackedObject>();
+
 	}
 
 	public void Update() {
@@ -52,12 +60,18 @@ public class GameController : MonoSingleton<GameController> {
 		} else {
 			mouseUpdate ();
 		}
+
+		if (controller == null) {
+			Debug.Log("Controller not initialized");
+			return;
+		}
+
+		logControllerInteraction ();
 	}
 
 	private void move(Vector3 direction, Transform entity) {
 		Vector3 pos = entity.position;
 		pos += direction * speedMultiplier;
-		Debug.Log ("move: " + direction * speedMultiplier);
 		entity.position = pos;
 	}
 
@@ -74,6 +88,29 @@ public class GameController : MonoSingleton<GameController> {
 
 		// Find the absolute mouse movement value from point zero.
 		_mouseAbsolute += _smoothMouse;
+	}
+
+	private void logControllerInteraction(){
+		gripButtonDown = controller.GetPressDown(gripButton);
+		gripButtonUp = controller.GetPressUp(gripButton);
+		gripButtonPressed = controller.GetPress(gripButton);
+
+		triggerButtonDown = controller.GetPressDown(triggerButton);
+		triggerButtonUp = controller.GetPressUp(triggerButton);
+		triggerButtonPressed = controller.GetPress(triggerButton);
+
+		if (gripButtonDown) {			        
+			Debug.Log("Grip Button was just pressed");
+		}
+		if (gripButtonUp) {
+			Debug.Log("Grip Button was just unpressed");
+		}
+		if (triggerButtonDown){
+			Debug.Log("Trigger Button was just pressed");
+		}
+		if (triggerButtonUp) {
+			Debug.Log("Trigger Button was just unpressed");
+		}
 	}
 
 	private void mouseUpdate(){
@@ -108,13 +145,5 @@ public class GameController : MonoSingleton<GameController> {
 		simHand.transform.position += mainCamera.transform.up * mouseDelta.y * handSpeedMultiplier + 
 			mainCamera.transform.right * mouseDelta.x * handSpeedMultiplier;
 	}
-
-	private void replaceSteamControllerModels(GameObject oldLeft, GameObject newLeft, GameObject oldRight, GameObject newRight) {
-		Transform leftParent = oldLeft.transform.parent;
-		Transform rightParent = oldRight.transform.parent;
-		newLeft.transform.SetParent (leftParent, false);
-		newRight.transform.SetParent (rightParent, false);
-		oldLeft.SetActive (false);
-		oldRight.SetActive (false);
-	}
+		
 }
