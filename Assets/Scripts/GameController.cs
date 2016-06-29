@@ -5,7 +5,7 @@ public class GameController : MonoSingleton<GameController> {
 
 	public Camera mainCamera;
 	public SimHand simHand;
-	public float speedMultiplier = 0.5f;
+	public float speedMultiplier = 0.0005f;
 	private float handSpeedMultiplier = 0.1f;
 
 	Vector2 _mouseAbsolute;
@@ -47,6 +47,7 @@ public class GameController : MonoSingleton<GameController> {
 	private void move(Vector3 direction, Transform entity) {
 		Vector3 pos = entity.position;
 		pos += direction * speedMultiplier;
+		Debug.Log ("move: " + direction * speedMultiplier);
 		entity.position = pos;
 	}
 
