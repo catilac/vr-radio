@@ -18,6 +18,16 @@ public class GameController : MonoSingleton<GameController> {
 	public Vector2 targetDirection;
 	public Vector2 targetCharacterDirection;
 
+	public GameObject leftHandModel;
+	public GameObject rightHandModel;
+	public GameObject steamLeftController;
+	public GameObject steamRightController;
+
+	protected override void Awake() {
+		replaceSteamControllerModels (steamLeftController, leftHandModel, steamRightController, rightHandModel);		
+		base.Awake ();
+	}
+
 	void Start() {
 		// Set target direction to the camera's initial orientation.
 		targetDirection = transform.localRotation.eulerAngles;
@@ -97,5 +107,14 @@ public class GameController : MonoSingleton<GameController> {
 
 		simHand.transform.position += mainCamera.transform.up * mouseDelta.y * handSpeedMultiplier + 
 			mainCamera.transform.right * mouseDelta.x * handSpeedMultiplier;
+	}
+
+	private void replaceSteamControllerModels(GameObject oldLeft, GameObject newLeft, GameObject oldRight, GameObject newRight) {
+		Transform leftParent = oldLeft.transform.parent;
+		Transform rightParent = oldRight.transform.parent;
+		newLeft.transform.SetParent (leftParent, false);
+		newRight.transform.SetParent (rightParent, false);
+		oldLeft.SetActive (false);
+		oldRight.SetActive (false);
 	}
 }
