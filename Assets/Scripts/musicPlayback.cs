@@ -37,6 +37,13 @@ public class musicPlayback : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (song != null) {
+			if (song.clip != null) {
+				if (song.time == 0) {
+					skipCurrent ();
+				}
+			}
+		}
 		if (Input.GetKeyUp ("p")) { //change input to appropriate controls later
 			if (isPlaying) {
 				pauseCurrent ();
