@@ -20,13 +20,6 @@ public class SimHand : MonoBehaviour {
 			transform.rotation = new Quaternion (0.0f, mainCamera.transform.rotation.y, 0.0f, mainCamera.transform.rotation.w);
 		}
 	}
-
-	void OnTriggerEnter(Collider Other){
-		print ("Trigger activated! Change music!");
-		quad.skipCurrent ();
-	}
-
-
 }
 
 

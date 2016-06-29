@@ -135,4 +135,9 @@ public class musicPlayback : MonoBehaviour {
 		thumbedUp.Add (currentSongIndex);
 	}
 
+	void OnTriggerEnter(Collider Other){
+		print ("Trigger activated! Change music!");
+		skipCurrent ();
+	}
+
 }
