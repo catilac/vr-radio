@@ -37,16 +37,11 @@ public class HandAnimator : MonoBehaviour {
 
 	public bool thumbsUp() {
 		if (parent != null) {
-			whatZ ();
 			if (isUpOrientation() && thumbHand) {
 				return true;
 			}
 		}
 		return false;
-	}
-
-	private void whatZ() {
-		print ("whatz? " + parent.transform.localRotation.eulerAngles.z);
 	}
 
 	private bool isUpOrientation() {
@@ -55,7 +50,6 @@ public class HandAnimator : MonoBehaviour {
 
 	public bool thumbsDown() {
 		if (parent != null) {
-			whatZ ();
 			if (!isUpOrientation() && thumbHand) {
 				return true;
 			}
