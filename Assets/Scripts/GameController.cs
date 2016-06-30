@@ -3,15 +3,20 @@ using System.Collections;
 
 public class GameController : MonoSingleton<GameController> {
 
+	private const int kPMLeftControllerDeviceIndex = 1;
+	private const int kPMRightControllerDeviceIndex = 2;
+
 	public Camera mainCamera;
 	public SimHand simHand;
 	public float speedMultiplier = 0.5f;
 	private float handSpeedMultiplier = 0.1f;
+
 	//Steam VR Controller variables
 	private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
 	private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
 
-	private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+	private SteamVR_Controller.Device leftController = SteamVR_Controller.Input (kPMLeftControllerDeviceIndex);
+	private SteamVR_Controller.Device rightController = SteamVR_Controller.Input (kPMRightControllerDeviceIndex);
 	private SteamVR_TrackedObject trackedObj;
 
 	public bool gripButtonDown = false;		
@@ -61,12 +66,13 @@ public class GameController : MonoSingleton<GameController> {
 			mouseUpdate ();
 		}
 
-		if (controller == null) {
+		if (leftController == null || rightController == null) {
 			Debug.Log("Controller not initialized");
 			return;
 		}
 
-		logControllerInteraction ();
+		logControllerInteraction (leftController);
+		logControllerInteraction (rightController);
 	}
 
 	private void move(Vector3 direction, Transform entity) {
@@ -90,7 +96,7 @@ public class GameController : MonoSingleton<GameController> {
 		_mouseAbsolute += _smoothMouse;
 	}
 
-	private void logControllerInteraction(){
+	private void logControllerInteraction(SteamVR_Controller.Device controller){
 		gripButtonDown = controller.GetPressDown(gripButton);
 		gripButtonUp = controller.GetPressUp(gripButton);
 		gripButtonPressed = controller.GetPress(gripButton);
