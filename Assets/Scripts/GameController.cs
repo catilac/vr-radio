@@ -44,10 +44,13 @@ public class GameController : MonoSingleton<GameController> {
 	public bool leftGripButtonPressed = false;	
 	public bool rightGripButtonPressed = false;	
 
-	public bool triggerButtonDown = false;		
-	public bool triggerButtonUp = false;		
-	public bool triggerButtonPressed = false;
+	public bool leftTriggerButtonDown = false;		
+	public bool leftTriggerButtonUp = false;		
+	public bool leftTriggerButtonPressed = false;
 
+	public bool rightTriggerButtonDown = false;		
+	public bool rightTriggerButtonUp = false;		
+	public bool rightTriggerButtonPressed = false;
 
 	Vector2 _mouseAbsolute;
 	Vector2 _smoothMouse;
@@ -92,9 +95,13 @@ public class GameController : MonoSingleton<GameController> {
 		rightGripButtonUp = rightController.GetPressUp(gripButton);
 		rightGripButtonPressed = rightController.GetPress(gripButton);
 
-		triggerButtonDown = leftController.GetPressDown(triggerButton);
-		triggerButtonUp = leftController.GetPressUp(triggerButton);
-		triggerButtonPressed = leftController.GetPress(triggerButton);
+		leftTriggerButtonDown = leftController.GetPressDown(triggerButton);
+		leftTriggerButtonUp = leftController.GetPressUp(triggerButton);
+		leftTriggerButtonPressed = leftController.GetPress(triggerButton);
+
+		rightTriggerButtonDown = rightController.GetPressDown(triggerButton);
+		rightTriggerButtonUp = rightController.GetPressUp(triggerButton);
+		rightTriggerButtonPressed = rightController.GetPress(triggerButton);
 
 		if (Input.GetKey ("w")) {
 			move (mainCamera.transform.forward, mainCamera.transform);
@@ -124,13 +131,19 @@ public class GameController : MonoSingleton<GameController> {
 		if (leftGripButtonDown) {
 			leftHandAnim.setPoint ();
 		}
-		if (leftGripButtonUp) {
+		if (leftTriggerButtonDown) {
+			leftHandAnim.setThumbsUp ();
+		}
+		if (!leftGripButtonPressed && !leftTriggerButtonPressed) {
 			leftHandAnim.setIdle ();
 		}
 		if (rightGripButtonDown) {
 			rightHandAnim.setPoint ();
 		}
-		if (rightGripButtonUp) {
+		if (rightTriggerButtonDown) {
+			rightHandAnim.setThumbsUp ();
+		}
+		if (!rightGripButtonPressed && !rightTriggerButtonPressed) {
 			rightHandAnim.setIdle ();
 		}
 
@@ -189,10 +202,10 @@ public class GameController : MonoSingleton<GameController> {
 		if (leftGripButtonUp) {
 			Debug.Log("Grip Button was just unpressed");
 		}
-		if (triggerButtonDown){
+		if (leftTriggerButtonDown){
 			Debug.Log("Trigger Button was just pressed");
 		}
-		if (triggerButtonUp) {
+		if (leftTriggerButtonUp) {
 			Debug.Log("Trigger Button was just unpressed");
 		}
 	}
