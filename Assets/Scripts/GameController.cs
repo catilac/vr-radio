@@ -57,7 +57,6 @@ public class GameController : MonoSingleton<GameController> {
 	private void move(Vector3 direction, Transform entity) {
 		Vector3 pos = entity.position;
 		pos += direction * speedMultiplier;
-		Debug.Log ("move: " + direction * speedMultiplier);
 		entity.position = pos;
 	}
 
