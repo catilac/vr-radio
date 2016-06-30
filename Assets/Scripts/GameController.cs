@@ -3,10 +3,36 @@ using System.Collections;
 
 public class GameController : MonoSingleton<GameController> {
 
+	private const int kPMLeftControllerDeviceIndex = 1;
+	private const int kPMRightControllerDeviceIndex = 2;
+
 	public Camera mainCamera;
 	public SimHand simHand;
-	public float speedMultiplier = 0.0005f;
+	public float speedMultiplier = 0.5f;
 	private float handSpeedMultiplier = 0.1f;
+
+	//Steam VR Controller variables
+	private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
+	private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+
+	private SteamVR_Controller.Device leftController = SteamVR_Controller.Input (kPMLeftControllerDeviceIndex);
+	private SteamVR_Controller.Device rightController = SteamVR_Controller.Input (kPMRightControllerDeviceIndex);
+	private SteamVR_TrackedObject trackedObj;
+
+	//For model swapping
+	public GameObject leftHandModel;
+	public GameObject rightHandModel;
+	public GameObject steamLeftControllerModel;
+	public GameObject steamRightControllerModel;
+
+	public bool gripButtonDown = false;		
+	public bool gripButtonUp = false;		
+	public bool gripButtonPressed = false;	
+
+	public bool triggerButtonDown = false;		
+	public bool triggerButtonUp = false;		
+	public bool triggerButtonPressed = false;
+
 
 	Vector2 _mouseAbsolute;
 	Vector2 _smoothMouse;
@@ -18,25 +44,23 @@ public class GameController : MonoSingleton<GameController> {
 	public Vector2 targetDirection;
 	public Vector2 targetCharacterDirection;
 
-	public GameObject leftHandModel;
-	public GameObject rightHandModel;
-	public GameObject steamLeftController;
-	public GameObject steamRightController;
-
-	ArrayList pointArr;
-	static GameObject gestureDrawing;
-	GestureTemplates m_Templates;
+  // Gesture Stuff
 	Gesture gesture;
 
 	protected override void Awake() {
-		replaceSteamControllerModels (steamLeftController, leftHandModel, steamRightController, rightHandModel);		
+		replaceSteamControllerModels (steamLeftControllerModel, leftHandModel, steamRightControllerModel, rightHandModel);		
 		base.Awake ();
 	}
 
 	void Start() {
 		// Set target direction to the camera's initial orientation.
 		targetDirection = transform.localRotation.eulerAngles;
+
+    // Gesture Recognizer
 		gesture = new Gesture();
+
+		//Steam VR tracked object.
+		trackedObj = GetComponent<SteamVR_TrackedObject>();
 	}
 
 	public void Update() {
@@ -62,12 +86,19 @@ public class GameController : MonoSingleton<GameController> {
 		else {
 			mouseUpdate ();
 		}
+
+		if (leftController == null || rightController == null) {
+			Debug.Log("Controller not initialized");
+			return;
+		}
+
+		logControllerInteraction (leftController);
+		logControllerInteraction (rightController);
 	}
 
 	private void move(Vector3 direction, Transform entity) {
 		Vector3 pos = entity.position;
 		pos += direction * speedMultiplier;
-		Debug.Log ("move: " + direction * speedMultiplier);
 		entity.position = pos;
 	}
 
@@ -84,6 +115,29 @@ public class GameController : MonoSingleton<GameController> {
 
 		// Find the absolute mouse movement value from point zero.
 		_mouseAbsolute += _smoothMouse;
+	}
+
+	private void logControllerInteraction(SteamVR_Controller.Device controller){
+		gripButtonDown = controller.GetPressDown(gripButton);
+		gripButtonUp = controller.GetPressUp(gripButton);
+		gripButtonPressed = controller.GetPress(gripButton);
+
+		triggerButtonDown = controller.GetPressDown(triggerButton);
+		triggerButtonUp = controller.GetPressUp(triggerButton);
+		triggerButtonPressed = controller.GetPress(triggerButton);
+
+		if (gripButtonDown) {			        
+			Debug.Log("Grip Button was just pressed");
+		}
+		if (gripButtonUp) {
+			Debug.Log("Grip Button was just unpressed");
+		}
+		if (triggerButtonDown){
+			Debug.Log("Trigger Button was just pressed");
+		}
+		if (triggerButtonUp) {
+			Debug.Log("Trigger Button was just unpressed");
+		}
 	}
 
 	private void mouseUpdate(){
