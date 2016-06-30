@@ -56,6 +56,10 @@ public class HandAnimator : MonoBehaviour {
 //	}
 
 	private void updateParams() {
+		if (anim == null) {
+			Debug.Log ("Hand animator not found.");
+			return;
+		}
 		anim.SetBool ("idleHand", idleHand);
 		anim.SetBool ("thumbHand", thumbHand);
 		anim.SetBool ("pointHand", pointHand);
