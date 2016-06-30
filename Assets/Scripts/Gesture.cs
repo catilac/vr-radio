@@ -5,7 +5,6 @@ using System.Collections;
 public class Gesture : MonoBehaviour
 {
 	static GameObject gestureDrawing;
-	public static GameObject GuiText;
 	GestureTemplates m_Templates;
 
 	public musicPlayback player;
@@ -19,8 +18,6 @@ public class Gesture : MonoBehaviour
 		pointArr = new ArrayList ();
 
 		gestureDrawing = GameObject.Find ("gesture");
-		GuiText = GameObject.Find ("GUIText");
-		GuiText.GetComponent<GUIText> ().text = GuiText.GetComponent<GUIText> ().text + "\n Templates loaded: " + GestureTemplates.Templates.Count;
 	}
 
 	public void StartGestureRecognition(Vector2 pos)
@@ -79,14 +76,11 @@ public class Gesture : MonoBehaviour
 			GestureTemplates.TemplateNames.Add(GestureRecognizer.stringToEdit);
 			GestureRecognizer.recordDone = 0;
 			GestureRecognizer.newTemplateArr.Clear();
-
-			GuiText.GetComponent<GUIText>().text = "TEMPLATE: " + GestureRecognizer.stringToEdit + "\n STATUS: SAVED";
 		}
 
 		if (GUI.Button (new Rect (160,50,50,20), "Cancel")) 
 		{
 			GestureRecognizer.recordDone = 0;
-			GuiText.GetComponent<GUIText>().text = "";
 		}
 	}
 }
