@@ -136,7 +136,6 @@ public class GameController : MonoSingleton<GameController> {
 
 		if (leftGripButtonPressed) {
 			Vector3 pos = LeftController.transform.position;
-            Debug.Log("SPEW: " + pos);
 			gesture.StartGestureRecognition (new Vector2 (pos.x, pos.y));
 		} else if (leftGripButtonUp) {
 			gesture.StopGestureRecognition ();

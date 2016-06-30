@@ -192,17 +192,17 @@ public class GestureRecognizer
 	    float score = 1.0f - (tempDistance / HalfDiagonal);
     	
 	    // print the result
-		Debug.Log("RESULT: " + GestureTemplates.TemplateNames[count] + " SCORE: " + score);
-
-		for (int i = 0; i < pointArray.Count; i++) {
-			Debug.Log ("Point Array: " + pointArray[i]);
-		}
+//		Debug.Log("RESULT: " + GestureTemplates.TemplateNames[count] + " SCORE: " + score);
+//
+//		for (int i = 0; i < pointArray.Count; i++) {
+//			Debug.Log ("Point Array: " + pointArray[i]);
+//		}
 	    
 		if (score < 0.7f)
         {
-		    Debug.Log("NO MATCH " + score );
+//		    Debug.Log("NO MATCH " + score );
 	    } else {
-		    Debug.Log("RESULT: " + GestureTemplates.TemplateNames[count] + " SCORE: " + score);
+//		    Debug.Log("RESULT: " + GestureTemplates.TemplateNames[count] + " SCORE: " + score);
 			if (player != null) {
 				player.skipCurrent ();
 			}
