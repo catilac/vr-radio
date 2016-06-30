@@ -115,6 +115,12 @@ public class GameController : MonoSingleton<GameController> {
 		if (Input.GetKey ("d")) {
 			move (mainCamera.transform.right, mainCamera.transform);
 		}
+		if(Input.GetKeyUp("/")) {
+			//Hack – swap hand models
+			HandAnimator temp = leftHandAnim;
+			leftHandAnim = rightHandAnim;
+			rightHandAnim = temp;
+		}
 
 		if (Input.GetKey ("e")) {
 			handUpdate ();
