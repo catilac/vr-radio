@@ -143,8 +143,14 @@ public class musicPlayback : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider Other){
-		print ("Trigger activated! Change music!");
-		skipCurrent ();
+		print ("Trigger activated!");
+		HandAnimator hand = Other.gameObject.GetComponent<HandAnimator> ();
+		if (hand != null) {
+			if (hand.thumbHand) {
+				print ("Change music!");
+				skipCurrent ();
+			}
+		}
 	}
 
 }
