@@ -21,8 +21,12 @@ public class GameController : MonoSingleton<GameController> {
 	private SteamVR_Controller.Device rightController = SteamVR_Controller.Input (kPMRightControllerDeviceIndex);
 	private SteamVR_TrackedObject trackedObj;
 
-	//For model swapping
-	public GameObject leftHandModel;
+    //For gesture tracking
+    public GameObject LeftController;
+    public GameObject RightController;
+
+    //For model swapping
+    public GameObject leftHandModel;
 	public GameObject rightHandModel;
 	public GameObject steamLeftControllerModel;
 	public GameObject steamRightControllerModel;
@@ -108,15 +112,16 @@ public class GameController : MonoSingleton<GameController> {
 			mouseUpdate ();
 		}
 
-		if (leftGripButtonDown) {
-			Vector3 pos = leftHandModel.transform.position;
+		if (leftGripButtonPressed) {
+			Vector3 pos = LeftController.transform.position;
+            Debug.Log("SPEW: " + pos);
 			gesture.StartGestureRecognition (new Vector2 (pos.x, pos.y));
 		} else if (leftGripButtonUp) {
 			gesture.StopGestureRecognition ();
 		}
 
-		if (rightGripButtonDown) {
-			Vector3 pos = rightHandModel.transform.position;
+		if (rightGripButtonPressed) {
+			Vector3 pos = RightController.transform.position;
 			gesture.StartGestureRecognition (new Vector2 (pos.x, pos.y));
 		} else if (rightGripButtonUp) {
 			gesture.StopGestureRecognition ();

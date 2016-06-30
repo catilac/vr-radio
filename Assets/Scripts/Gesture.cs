@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Gesture : MonoBehaviour
+public class Gesture
 {
 	static GameObject gestureDrawing;
 	GestureTemplates m_Templates;
