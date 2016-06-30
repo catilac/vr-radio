@@ -146,9 +146,11 @@ public class musicPlayback : MonoBehaviour {
 		print ("Trigger activated!");
 		HandAnimator hand = Other.gameObject.GetComponent<HandAnimator> ();
 		if (hand != null) {
-			if (hand.thumbHand) {
+			if (hand.thumbsDown ()) {
 				print ("Change music!");
-				skipCurrent ();
+				this.thumbsDown ();
+			} else if (hand.thumbsUp ()) {
+				this.thumbsUp ();
 			}
 		}
 	}
