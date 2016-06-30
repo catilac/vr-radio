@@ -138,10 +138,11 @@ ModelImporter:
     4300000: Cube_000
     4300002: Cube_005
     4300004: Plane
-    7400000: Default Take
+    7400000: Idle
     7400002: Hand_roll_1
     7400004: Hand_roll_2
     7400006: ThumbUp
+    7400008: Point
     9500000: //RootNode
     13700000: Cube_000
     13700002: Cube_005
@@ -165,7 +166,463 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/ribs_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/forearm_L_003
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L/finger_index_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L/finger_index_02_L/finger_index_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L/thumb_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L/thumb_02_L/thumb_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L/finger_middle_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L/finger_middle_02_L/finger_middle_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L/finger_ring_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L/finger_ring_02_L/finger_ring_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L/finger_pinky_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L/finger_pinky_02_L/finger_pinky_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/forearm_R_003
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R/finger_index_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R/finger_index_02_R/finger_index_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R/thumb_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R/thumb_02_R/thumb_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R/finger_middle_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R/finger_middle_02_R/finger_middle_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R/finger_ring_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R/finger_ring_02_R/finger_ring_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R/finger_pinky_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R/finger_pinky_02_R/finger_pinky_03_R
+        weight: 1
+      - path: Cube_000
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ThumbUp
+      takeName: Default Take
+      firstFrame: 30
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/ribs_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/forearm_L_003
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L/finger_index_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L/finger_index_02_L/finger_index_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L/thumb_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L/thumb_02_L/thumb_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L/finger_middle_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L/finger_middle_02_L/finger_middle_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L/finger_ring_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L/finger_ring_02_L/finger_ring_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L/finger_pinky_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L/finger_pinky_02_L/finger_pinky_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/forearm_R_003
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R/finger_index_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R/finger_index_02_R/finger_index_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R/thumb_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R/thumb_02_R/thumb_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R/finger_middle_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R/finger_middle_02_R/finger_middle_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R/finger_ring_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R/finger_ring_02_R/finger_ring_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R/finger_pinky_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R/finger_pinky_02_R/finger_pinky_03_R
+        weight: 1
+      - path: Cube_000
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Point
+      takeName: Default Take
+      firstFrame: 59
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/ribs_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/forearm_L_003
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L/finger_index_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/finger_index_01_L/finger_index_02_L/finger_index_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L/thumb_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_01_L_001/palm_01_L/thumb_01_L_001/thumb_01_L/thumb_02_L/thumb_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L/finger_middle_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_02_L_001/palm_02_L/finger_middle_01_L/finger_middle_02_L/finger_middle_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L/finger_ring_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_03_L_001/palm_03_L/finger_ring_01_L/finger_ring_02_L/finger_ring_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L/finger_pinky_02_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_L/upper_arm_L/forearm_L/hand_L/palm_04_L_001/palm_04_L/finger_pinky_01_L/finger_pinky_02_L/finger_pinky_03_L
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/forearm_R_003
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R/finger_index_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/finger_index_01_R/finger_index_02_R/finger_index_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R/thumb_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_01_R_001/palm_01_R/thumb_01_R_001/thumb_01_R/thumb_02_R/thumb_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R/finger_middle_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_02_R_001/palm_02_R/finger_middle_01_R/finger_middle_02_R/finger_middle_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R/finger_ring_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_03_R_001/palm_03_R/finger_ring_01_R/finger_ring_02_R/finger_ring_03_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R/finger_pinky_02_R
+        weight: 1
+      - path: Armature/ribs_001/shoulder_R/upper_arm_R/forearm_R/hand_R/palm_04_R_001/palm_04_R/finger_pinky_01_R/finger_pinky_02_R/finger_pinky_03_R
+        weight: 1
+      - path: Cube_000
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
