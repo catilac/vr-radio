@@ -6,6 +6,8 @@ using System.Linq;
 
 public class musicPlayback : MonoBehaviour {
 
+	public GameObject thumb_up;
+
 	private AudioSource song;
 	private List<AudioClip> songs = new List<AudioClip> ();
 	private bool isPlaying;
@@ -143,6 +145,13 @@ public class musicPlayback : MonoBehaviour {
 
 	public void thumbsUp() {
 		thumbedUp.Add (currentSongIndex);
+		StartCoroutine (thumbTimer());
+	}
+
+	public IEnumerator thumbTimer() {
+		thumb_up.SetActive (true);
+		yield return new WaitForSeconds (2f);
+		thumb_up.SetActive (false);
 	}
 
 	void OnTriggerEnter(Collider Other){
