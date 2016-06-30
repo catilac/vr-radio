@@ -6,6 +6,8 @@ public class GameController : MonoSingleton<GameController> {
 	private const int kPMLeftControllerDeviceIndex = 1;
 	private const int kPMRightControllerDeviceIndex = 2;
 
+	public musicPlayback mp;
+
 	public Camera mainCamera;
 	public SimHand simHand;
 	public float speedMultiplier = 0.5f;
@@ -63,6 +65,7 @@ public class GameController : MonoSingleton<GameController> {
 
     // Gesture Recognizer
 		gesture = new Gesture();
+		gesture.player = mp;
 
 		//Steam VR tracked object.
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
