@@ -19,6 +19,12 @@ public class GameController : MonoSingleton<GameController> {
 	private SteamVR_Controller.Device rightController = SteamVR_Controller.Input (kPMRightControllerDeviceIndex);
 	private SteamVR_TrackedObject trackedObj;
 
+	//For model swapping
+	public GameObject leftHandModel;
+	public GameObject rightHandModel;
+	public GameObject steamLeftControllerModel;
+	public GameObject steamRightControllerModel;
+
 	public bool gripButtonDown = false;		
 	public bool gripButtonUp = false;		
 	public bool gripButtonPressed = false;	
@@ -37,6 +43,11 @@ public class GameController : MonoSingleton<GameController> {
 	public Vector2 smoothing = new Vector2(3, 3);
 	public Vector2 targetDirection;
 	public Vector2 targetCharacterDirection;
+
+	protected override void Awake() {
+		replaceSteamControllerModels (steamLeftControllerModel, leftHandModel, steamRightControllerModel, rightHandModel);		
+		base.Awake ();
+	}
 
 	void Start() {
 		// Set target direction to the camera's initial orientation.
@@ -151,5 +162,13 @@ public class GameController : MonoSingleton<GameController> {
 		simHand.transform.position += mainCamera.transform.up * mouseDelta.y * handSpeedMultiplier + 
 			mainCamera.transform.right * mouseDelta.x * handSpeedMultiplier;
 	}
-		
+
+	private void replaceSteamControllerModels(GameObject oldLeft, GameObject newLeft, GameObject oldRight, GameObject newRight) {
+		Transform leftParent = oldLeft.transform.parent;
+		Transform rightParent = oldRight.transform.parent;
+		newLeft.transform.SetParent (leftParent, false);
+		newRight.transform.SetParent (rightParent, false);
+		oldLeft.SetActive (false);
+		oldRight.SetActive (false);
+	}
 }
