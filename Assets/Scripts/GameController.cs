@@ -31,6 +31,10 @@ public class GameController : MonoSingleton<GameController> {
 	public GameObject steamLeftControllerModel;
 	public GameObject steamRightControllerModel;
 
+	//For hand posing
+	public HandAnimator leftHandAnim;
+	public HandAnimator rightHandAnim;
+
 	public bool leftGripButtonDown = false;	
 	public bool rightGripButtonDown = false;
 
@@ -73,6 +77,10 @@ public class GameController : MonoSingleton<GameController> {
 
 		//Steam VR tracked object.
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
+
+		//Get references to posing animation objects
+		leftHandAnim = leftHandModel.GetComponent<HandAnimator>();
+		rightHandAnim = rightHandModel.GetComponent<HandAnimator>();
 	}
 
 	public void Update() {
@@ -110,6 +118,20 @@ public class GameController : MonoSingleton<GameController> {
 		}
 		else {
 			mouseUpdate ();
+		}
+
+		/* Hand posing */
+		if (leftGripButtonDown) {
+			leftHandAnim.setPoint ();
+		}
+		if (leftGripButtonUp) {
+			leftHandAnim.setIdle ();
+		}
+		if (rightGripButtonDown) {
+			rightHandAnim.setPoint ();
+		}
+		if (rightGripButtonUp) {
+			rightHandAnim.setIdle ();
 		}
 
 		if (leftGripButtonPressed) {
