@@ -5,6 +5,8 @@ public class HandAnimator : MonoBehaviour {
 
 	private Animator anim;
 
+	public GameObject parent;
+
 	public void Start() {
 		anim = GetComponent<Animator> ();
 	}
@@ -31,6 +33,28 @@ public class HandAnimator : MonoBehaviour {
 		thumbHand = false;
 		pointHand = true;
 		updateParams ();
+	}
+
+	public bool thumbsUp() {
+		if (parent != null) {
+			if (isUpOrientation() && thumbHand) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private bool isUpOrientation() {
+		return parent.transform.position.z > 235 || parent.transform.position.z < 90;
+	}
+
+	public bool thumbsDown() {
+		if (parent != null) {
+			if (!isUpOrientation() && thumbHand) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 //Enable if you want to debug

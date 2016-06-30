@@ -250,5 +250,9 @@ public class GameController : MonoSingleton<GameController> {
 		newRight.transform.SetParent (rightParent, false);
 		oldLeft.SetActive (false);
 		oldRight.SetActive (false);
+		HandAnimator leftAnimator = leftHandModel.GetComponent<HandAnimator>();
+		HandAnimator rightAnimator = rightHandModel.GetComponent<HandAnimator>();
+		leftAnimator.parent = leftParent.gameObject;
+		rightAnimator.parent = rightParent.gameObject;
 	}
 }
