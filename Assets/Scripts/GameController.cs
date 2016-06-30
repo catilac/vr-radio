@@ -23,6 +23,11 @@ public class GameController : MonoSingleton<GameController> {
 	public GameObject steamLeftController;
 	public GameObject steamRightController;
 
+	ArrayList pointArr;
+	static GameObject gestureDrawing;
+	GestureTemplates m_Templates;
+	Gesture gesture;
+
 	protected override void Awake() {
 		replaceSteamControllerModels (steamLeftController, leftHandModel, steamRightController, rightHandModel);		
 		base.Awake ();
@@ -31,6 +36,7 @@ public class GameController : MonoSingleton<GameController> {
 	void Start() {
 		// Set target direction to the camera's initial orientation.
 		targetDirection = transform.localRotation.eulerAngles;
+		gesture = new Gesture();
 	}
 
 	public void Update() {
@@ -49,7 +55,11 @@ public class GameController : MonoSingleton<GameController> {
 
 		if (Input.GetKey ("e")) {
 			handUpdate ();
-		} else {
+			gesture.StartGestureRecognition(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+		} else if (Input.GetKeyUp("e")) {
+			gesture.StopGestureRecognition();
+		}
+		else {
 			mouseUpdate ();
 		}
 	}
