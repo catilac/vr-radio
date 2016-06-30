@@ -46,11 +46,11 @@ public class HandAnimator : MonoBehaviour {
 	}
 
 	private void whatZ() {
-		print ("whatz? " + parent.transform.position.z);
+		print ("whatz? " + parent.transform.localRotation.eulerAngles.z);
 	}
 
 	private bool isUpOrientation() {
-		return parent.transform.position.z > 235 || parent.transform.position.z < 90;
+		return parent.transform.localRotation.eulerAngles.z > 235 || parent.transform.localRotation.eulerAngles.z < 90;
 	}
 
 	public bool thumbsDown() {
