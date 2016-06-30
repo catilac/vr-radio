@@ -22,12 +22,7 @@ public class Gesture : MonoBehaviour
 
 	public void StartGestureRecognition(Vector2 pos)
 	{
-		mouseDown = 1;
-
-		if (mouseDown == 1) {
-			pointArr.Add (pos);
-		}
-
+		pointArr.Add (pos);
 	}
 
 	public void StopGestureRecognition(){

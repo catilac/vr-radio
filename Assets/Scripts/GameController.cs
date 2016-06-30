@@ -25,9 +25,14 @@ public class GameController : MonoSingleton<GameController> {
 	public GameObject steamLeftControllerModel;
 	public GameObject steamRightControllerModel;
 
-	public bool gripButtonDown = false;		
-	public bool gripButtonUp = false;		
-	public bool gripButtonPressed = false;	
+	public bool leftGripButtonDown = false;	
+	public bool rightGripButtonDown = false;
+
+	public bool leftGripButtonUp = false;		
+	public bool rightGripButtonUp = false;
+
+	public bool leftGripButtonPressed = false;	
+	public bool rightGripButtonPressed = false;	
 
 	public bool triggerButtonDown = false;		
 	public bool triggerButtonUp = false;		
@@ -64,6 +69,18 @@ public class GameController : MonoSingleton<GameController> {
 	}
 
 	public void Update() {
+		leftGripButtonDown = leftController.GetPressDown(gripButton);
+		leftGripButtonUp = leftController.GetPressUp(gripButton);
+		leftGripButtonPressed = leftController.GetPress(gripButton);
+
+		rightGripButtonDown = rightController.GetPressDown(gripButton);
+		rightGripButtonUp = rightController.GetPressUp(gripButton);
+		rightGripButtonPressed = rightController.GetPress(gripButton);
+
+		triggerButtonDown = leftController.GetPressDown(triggerButton);
+		triggerButtonUp = leftController.GetPressUp(triggerButton);
+		triggerButtonPressed = leftController.GetPress(triggerButton);
+
 		if (Input.GetKey ("w")) {
 			move (mainCamera.transform.forward, mainCamera.transform);
 		}
@@ -79,7 +96,8 @@ public class GameController : MonoSingleton<GameController> {
 
 		if (Input.GetKey ("e")) {
 			handUpdate ();
-			gesture.StartGestureRecognition(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+			Vector3 pos = rightHandModel.transform.position;
+			gesture.StartGestureRecognition(new Vector2(pos.x, pos.y));
 		} else if (Input.GetKeyUp("e")) {
 			gesture.StopGestureRecognition();
 		}
@@ -87,10 +105,28 @@ public class GameController : MonoSingleton<GameController> {
 			mouseUpdate ();
 		}
 
+		if (leftGripButtonDown) {
+			Vector3 pos = leftHandModel.transform.position;
+			gesture.StartGestureRecognition (new Vector2 (pos.x, pos.y));
+		} else if (leftGripButtonUp) {
+			gesture.StopGestureRecognition ();
+		}
+
+		if (rightGripButtonDown) {
+			Vector3 pos = rightHandModel.transform.position;
+			gesture.StartGestureRecognition (new Vector2 (pos.x, pos.y));
+		} else if (rightGripButtonUp) {
+			gesture.StopGestureRecognition ();
+		}
+
+			
+			
+
 		if (leftController == null || rightController == null) {
 			Debug.Log("Controller not initialized");
 			return;
 		}
+
 
 		logControllerInteraction (leftController);
 		logControllerInteraction (rightController);
@@ -118,18 +154,10 @@ public class GameController : MonoSingleton<GameController> {
 	}
 
 	private void logControllerInteraction(SteamVR_Controller.Device controller){
-		gripButtonDown = controller.GetPressDown(gripButton);
-		gripButtonUp = controller.GetPressUp(gripButton);
-		gripButtonPressed = controller.GetPress(gripButton);
-
-		triggerButtonDown = controller.GetPressDown(triggerButton);
-		triggerButtonUp = controller.GetPressUp(triggerButton);
-		triggerButtonPressed = controller.GetPress(triggerButton);
-
-		if (gripButtonDown) {			        
+		if (leftGripButtonDown) {			        
 			Debug.Log("Grip Button was just pressed");
 		}
-		if (gripButtonUp) {
+		if (leftGripButtonUp) {
 			Debug.Log("Grip Button was just unpressed");
 		}
 		if (triggerButtonDown){
@@ -169,7 +197,7 @@ public class GameController : MonoSingleton<GameController> {
 	private void handUpdate() {
 		var mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
-		simHand.transform.position += mainCamera.transform.up * mouseDelta.y * handSpeedMultiplier + 
+		rightHandModel.transform.position += mainCamera.transform.up * mouseDelta.y * handSpeedMultiplier + 
 			mainCamera.transform.right * mouseDelta.x * handSpeedMultiplier;
 	}
 
