@@ -16,6 +16,7 @@ public class musicPlayback : MonoBehaviour {
 	private List<string> validExtensions = new List<string> {".ogg"};
 
 	private int currentSongIndex = 0;
+	private int numSongs;
 
 	private char[] delimiters = { '_', '.' };
 	public string currentSongAlbumID;
@@ -37,12 +38,8 @@ public class musicPlayback : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (song != null) {
-			if (song.clip != null) {
-				if (song.time == 0) {
-					skipCurrent ();
-				}
-			}
+		if (!song.isPlaying && isPlaying) {
+			skipCurrent ();
 		}
 		if (Input.GetKeyUp ("p")) { //change input to appropriate controls later
 			if (isPlaying) {
@@ -67,6 +64,7 @@ public class musicPlayback : MonoBehaviour {
 		DirectoryInfo info = new DirectoryInfo (absolutePath + "OGG");
 		songFiles = info.GetFiles ()
 			.Where(f => isValidFileType(f.Name)).ToArray();
+		numSongs = songFiles.Length;
 
 		foreach (FileInfo s in songFiles) {
 			StartCoroutine (LoadFile (s.FullName));
@@ -79,7 +77,6 @@ public class musicPlayback : MonoBehaviour {
 
 	IEnumerator LoadFile(string path) {
 		WWW www = new WWW ("file://" + path);
-		print ("loading " + path);
 
 		AudioClip clip = www.GetAudioClip (false);
 		while (!(clip.loadState == AudioDataLoadState.Loaded)) {
@@ -88,6 +85,8 @@ public class musicPlayback : MonoBehaviour {
 
 		clip.name = Path.GetFileName (path);
 		songs.Add (clip);
+		print ("Finished loading " + path);
+
 	}
 
 	void loadAlbumArt(string albumID) {
@@ -102,7 +101,7 @@ public class musicPlayback : MonoBehaviour {
 		song.clip = songs [currentSongIndex];
 
 		string[] song_info = song.clip.name.Split (delimiters);
-		if (currentSongAlbum != song_info[0]) {
+		if (currentSongAlbumID != song_info[0]) {
 			currentSongAlbumID = song_info[0];
 			currentSongTitle = song_info[1];
 			currentSongArtist = song_info[2];
@@ -123,6 +122,10 @@ public class musicPlayback : MonoBehaviour {
 	public void skipCurrent() { //edge case: all songs thumbed down
 		incrementSongIndex ();
 		song.Stop ();
+		if (thumbedDown.Count == numSongs) { //all songs thumbed down
+			loadAlbumArt("no_cover.png");
+			return;
+		}
 		while (thumbedDown.Contains(currentSongIndex)) {
 			incrementSongIndex ();
 		}
@@ -143,11 +146,9 @@ public class musicPlayback : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider Other){
-		print ("Trigger activated!");
 		HandAnimator hand = Other.gameObject.GetComponent<HandAnimator> ();
 		if (hand != null) {
 			if (hand.thumbsDown ()) {
-				print ("Change music!");
 				this.thumbsDown ();
 			} else if (hand.thumbsUp ()) {
 				this.thumbsUp ();
